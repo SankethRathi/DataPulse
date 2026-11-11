@@ -1,0 +1,31 @@
+
+# Python environment and cache
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Runtime database
+data/datapulse.db
+data/datapulse.db-shm
+data/datapulse.db-wal
+
+# Repeated E2E-generated datasets
+data/raw/e2e_*.csv
+
+# Generated pipeline outputs
+data/processed/
+data/quarantine/
+
+# Generated test databases and test publishing outputs
+tests/temp/
+tests/test_data/
+
+# Repeated E2E reports and reliability test reports
+reports/e2e_*_report.json
+reports/reliability_*_report.json

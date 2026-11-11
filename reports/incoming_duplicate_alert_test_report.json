@@ -1,0 +1,189 @@
+{
+    "batch_metadata": {
+        "batch_id": "50aeee3e-e405-460e-b689-eb82746595a9",
+        "content_hash": "c7757832fb44e3683470f981b206727745374a211151a9b8632d7dc720b65071",
+        "source_file": "incoming_duplicate_alert_test.csv",
+        "ingested_at": "2026-11-11T08:17:21.522241+00:00",
+        "row_count": 1000,
+        "column_count": 8,
+        "status": "INGESTED"
+    },
+    "schema_comparison": {
+        "new_columns": [
+            "source_channel"
+        ],
+        "missing_columns": [],
+        "type_changes": [],
+        "passed": false
+    },
+    "validation": {
+        "total_records": 1000,
+        "valid_records": 1000,
+        "rejected_records": 0,
+        "quarantine_file": null
+    },
+    "reconciliation": {
+        "input_records": 1000,
+        "valid_records": 1000,
+        "rejected_records": 0,
+        "reconciled_records": 1000,
+        "difference": 0,
+        "passed": true
+    },
+    "profile": {
+        "row_count": 1000,
+        "column_count": 8,
+        "columns": {
+            "order_id": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 1000,
+                "distribution": "Skipped: high-cardinality column"
+            },
+            "customer_id": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 897,
+                "distribution": "Skipped: high-cardinality column"
+            },
+            "product_id": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 432,
+                "distribution": "Skipped: high-cardinality column"
+            },
+            "order_amount": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 999,
+                "statistics": {
+                    "mean": 915.33,
+                    "median": 799.78,
+                    "min": 80.39,
+                    "max": 3898.61,
+                    "std": 526.32
+                }
+            },
+            "quantity": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 5,
+                "statistics": {
+                    "mean": 3.04,
+                    "median": 3.0,
+                    "min": 1.0,
+                    "max": 5.0,
+                    "std": 1.41
+                }
+            },
+            "order_status": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 3,
+                "distribution": {
+                    "completed": 73.5,
+                    "pending": 15.5,
+                    "cancelled": 11.0
+                }
+            },
+            "order_timestamp": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 996
+            },
+            "source_channel": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 1,
+                "distribution": {
+                    "mobile": 100.0
+                }
+            }
+        },
+        "freshness": {
+            "latest_event_timestamp": "2026-11-04T23:55:57+00:00",
+            "age_hours_at_profile_time": 152.36,
+            "invalid_timestamp_count": 0
+        },
+        "schema": {
+            "order_id": "string",
+            "customer_id": "string",
+            "product_id": "string",
+            "order_amount": "numeric",
+            "quantity": "numeric",
+            "order_status": "string",
+            "order_timestamp": "string",
+            "source_channel": "string"
+        }
+    },
+    "quality_checks": {
+        "status": "COMPLETED",
+        "metrics": {
+            "invalid_status_count": 0,
+            "future_timestamp_count": 0,
+            "amount_outlier_count": 35,
+            "amount_iqr_lower_limit": -430.78,
+            "amount_iqr_upper_limit": 2124.91
+        },
+        "alerts": [
+            {
+                "metric": "order_amount_outliers",
+                "severity": "MEDIUM",
+                "observed": 35,
+                "expected": 0,
+                "message": "35 order amounts fall outside the IQR range (-430.78, 2124.91)."
+            }
+        ],
+        "alert_count": 1
+    },
+    "alerts": [
+        {
+            "metric": "schema_new_column",
+            "severity": "MEDIUM",
+            "observed": "source_channel",
+            "expected": null,
+            "message": "Unexpected column 'source_channel' was introduced."
+        },
+        {
+            "metric": "order_amount_outliers",
+            "severity": "MEDIUM",
+            "observed": 35,
+            "expected": 0,
+            "message": "35 order amounts fall outside the IQR range (-430.78, 2124.91)."
+        }
+    ],
+    "alert_count": 2,
+    "transformation": {
+        "input_records": 1000,
+        "output_records": 1000,
+        "input_columns": 8,
+        "output_columns": 9,
+        "status": "COMPLETED"
+    },
+    "publishing": {
+        "batch_id": "50aeee3e-e405-460e-b689-eb82746595a9",
+        "published_file": "data\\processed\\50aeee3e-e405-460e-b689-eb82746595a9.csv",
+        "record_count": 1000,
+        "column_count": 9,
+        "columns": [
+            "order_id",
+            "customer_id",
+            "product_id",
+            "order_amount",
+            "quantity",
+            "order_status",
+            "order_timestamp",
+            "source_channel",
+            "total_order_value"
+        ],
+        "status": "PUBLISHED"
+    },
+    "operational_metrics": {
+        "execution_time_seconds": 0.4411,
+        "records_processed": 1000,
+        "records_per_second": 2267.06
+    },
+    "pipeline_status": "COMPLETED",
+    "report_path": "reports\\incoming_duplicate_alert_test_report.json",
+    "run_id": "90732c2c-3ca9-4813-9c81-b5ca2b3c80b8"
+}

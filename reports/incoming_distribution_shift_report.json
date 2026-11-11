@@ -1,0 +1,141 @@
+{
+    "batch_metadata": {
+        "batch_id": "a43df6be-aec3-46bf-927d-e0ab1ffc1074",
+        "content_hash": "da3da3be59ec735792206b8aa7d5e09ce7956134cdd5f0e234b3943bbe1c13c5",
+        "source_file": "incoming_distribution_shift.csv",
+        "ingested_at": "2026-11-11T07:17:47.671076+00:00",
+        "row_count": 1000,
+        "column_count": 7,
+        "status": "INGESTED"
+    },
+    "validation": {
+        "total_records": 1000,
+        "valid_records": 1000,
+        "rejected_records": 0,
+        "quarantine_file": null
+    },
+    "reconciliation": {
+        "input_records": 1000,
+        "valid_records": 1000,
+        "rejected_records": 0,
+        "reconciled_records": 1000,
+        "difference": 0,
+        "passed": true
+    },
+    "profile": {
+        "row_count": 1000,
+        "column_count": 7,
+        "columns": {
+            "order_id": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 1000,
+                "distribution": "Skipped: high-cardinality column"
+            },
+            "customer_id": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 910,
+                "distribution": "Skipped: high-cardinality column"
+            },
+            "product_id": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 436,
+                "distribution": "Skipped: high-cardinality column"
+            },
+            "order_amount": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 997,
+                "statistics": {
+                    "mean": 2724.12,
+                    "median": 2441.19,
+                    "min": 98.49,
+                    "max": 9762.09,
+                    "std": 1554.36
+                }
+            },
+            "quantity": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 5,
+                "statistics": {
+                    "mean": 3.06,
+                    "median": 3.0,
+                    "min": 1.0,
+                    "max": 5.0,
+                    "std": 1.46
+                }
+            },
+            "order_status": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 3,
+                "distribution": {
+                    "completed": 74.4,
+                    "pending": 15.7,
+                    "cancelled": 9.9
+                }
+            },
+            "order_timestamp": {
+                "null_count": 0,
+                "null_percentage": 0.0,
+                "distinct_count": 996
+            }
+        },
+        "freshness": {
+            "latest_event_timestamp": "2026-11-07T23:59:20+00:00",
+            "age_hours_at_profile_time": 79.31,
+            "invalid_timestamp_count": 0
+        }
+    },
+    "alerts": [
+        {
+            "metric": "order_amount_mean",
+            "severity": "HIGH",
+            "observed": 2724.12,
+            "expected": 883.36,
+            "message": "Order amount mean changed by 208.38% from its historical baseline."
+        },
+        {
+            "metric": "order_amount_median",
+            "severity": "HIGH",
+            "observed": 2441.19,
+            "expected": 799.66,
+            "message": "Order amount median changed by 205.28% from its historical baseline."
+        }
+    ],
+    "alert_count": 2,
+    "transformation": {
+        "input_records": 1000,
+        "output_records": 1000,
+        "input_columns": 7,
+        "output_columns": 8,
+        "status": "COMPLETED"
+    },
+    "publishing": {
+        "batch_id": "a43df6be-aec3-46bf-927d-e0ab1ffc1074",
+        "published_file": "data\\processed\\a43df6be-aec3-46bf-927d-e0ab1ffc1074.csv",
+        "record_count": 1000,
+        "column_count": 8,
+        "columns": [
+            "order_id",
+            "customer_id",
+            "product_id",
+            "order_amount",
+            "quantity",
+            "order_status",
+            "order_timestamp",
+            "total_order_value"
+        ],
+        "status": "PUBLISHED"
+    },
+    "operational_metrics": {
+        "execution_time_seconds": 0.2654,
+        "records_processed": 1000,
+        "records_per_second": 3767.9
+    },
+    "pipeline_status": "COMPLETED",
+    "report_path": "reports\\incoming_distribution_shift_report.json"
+}

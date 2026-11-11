@@ -1,0 +1,32 @@
+{
+    "batch_metadata": {
+        "batch_id": "96a51448-434f-4c70-aa00-ca537d6b53ce",
+        "content_hash": "9203bc7516bb9d91eccd2b6ecfc19efda106739d6308eed36b10bfb388081fa9",
+        "source_file": "incoming_missing_column.csv",
+        "ingested_at": "2026-11-11T08:12:17.300745+00:00",
+        "row_count": 1000,
+        "column_count": 6,
+        "status": "INGESTED"
+    },
+    "schema_comparison": {
+        "new_columns": [],
+        "missing_columns": [
+            "customer_id"
+        ],
+        "type_changes": [],
+        "passed": false
+    },
+    "alerts": [
+        {
+            "metric": "schema_missing_column",
+            "severity": "HIGH",
+            "observed": null,
+            "expected": "customer_id",
+            "message": "Expected column 'customer_id' is missing."
+        }
+    ],
+    "alert_count": 1,
+    "pipeline_status": "FAILED",
+    "failure_reason": "Required columns are missing.",
+    "report_path": "reports\\incoming_missing_column_report.json"
+}

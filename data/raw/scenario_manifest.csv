@@ -1,0 +1,9 @@
+filename,scenario,description
+historical_batch_1.csv,normal,Historical baseline batch
+historical_batch_2.csv,normal,Historical baseline batch
+historical_batch_3.csv,normal,Historical baseline batch
+incoming_normal.csv,normal,Normal incoming batch
+incoming_missing_values.csv,missing_values,20% of customer IDs are missing
+incoming_duplicates.csv,duplicates,5% additional duplicate records
+incoming_distribution_shift.csv,distribution_shift,Order amounts increased by a factor of three
+incoming_late_records.csv,late_records,Records arrive with older event timestamps
